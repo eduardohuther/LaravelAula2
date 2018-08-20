@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Atividade;
 use Illuminate\Http\Request;
+use Validator, Input, Redirect; 
 
 class AtividadeController extends Controller
 {
@@ -25,7 +26,7 @@ class AtividadeController extends Controller
      */
     public function create()
     {
-        //
+        return view('atividade.create');
     }
 
     /**
@@ -36,7 +37,29 @@ class AtividadeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $messages = array(
+            'title.required' => 'É obrigatório um título',
+            'description.required' => 'É obrigatório uma descrição',
+            'scheduledto.required' => 'É obrigatório uma data',
+            );
+        $regras = array(
+            'title' => 'required|string|max:255',
+            'description' => 'required',
+            'scheduledto' => 'required|string',
+
+            );
+        $validador = Validator::make($request->all(), $regras, $messages);
+        if ($validador->fails()){
+            return redirect('atividades/create')
+            ->withErrors($validador)
+            ->withInput($request->all);
+        }
+        $obj_Atividade = new Atividade();
+        $obj_Atividade->title = $request['title'];
+        $obj_Atividade->description = $request['description'];
+        $obj_Atividade->scheduledto = $request['scheduledto'];
+        $obj_Atividade->save();
+        return redirect('/atividades')->with('success', 'Atividade criada com sucesso!');
     }
 
     /**
