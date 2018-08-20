@@ -7,6 +7,13 @@
 	<br>
 @endforeach
 
+@if(\Session::has('success'))
+<div class="container">
+	<div class="alert alert-sucess">
+		{{\Session::get('success')}}
+	</div>
+</div>
+@endif
 
 
 <!-- \Carbon\Carbon::parse($atividade->scheduledto)->format('d/m/Y h:m')  -->

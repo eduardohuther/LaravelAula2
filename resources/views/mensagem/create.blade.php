@@ -19,11 +19,3 @@
 	</div>
 </div>
 @endif
-
-@if(\Session::has('success'))
-<div class="container">
-	<div class="alert alert-sucess">
-		{{\Session::get('success')}}
-	</div>
-</div>
-@endif

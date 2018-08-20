@@ -43,11 +43,11 @@ class MensagemController extends Controller
             ->withErrors($validador)
             ->withInput($request->all);
         }
-        $obj_Atividade = new Mensagem();
-        $obj_Atividade->title = $request['title'];
-        $obj_Atividade->description = $request['description'];
-        $obj_Atividade->author = $request['author'];
-        $obj_Atividade->save();
+        $obj_Mensagem = new Mensagem();
+        $obj_Mensagem->title = $request['title'];
+        $obj_Mensagem->description = $request['description'];
+        $obj_Mensagem->author = $request['author'];
+        $obj_Mensagem->save();
         return redirect('/mensagens')->with('success', 'Mensagem criada com sucesso!');
     }
     public function show($id)
