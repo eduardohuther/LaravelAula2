@@ -1,6 +1,6 @@
 <h1>Cadastro de Atividade</h1>
 <hr>
-<form action="/atividade" method="post">
+<form action="/atividades" method="post">
 	{{ csrf_field() }}
 	Título: <input type="text" name="title"> <br>
 	Descrição: <input type="text" name="description"> <br>

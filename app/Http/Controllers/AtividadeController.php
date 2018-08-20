@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Atividade;
 use Illuminate\Http\Request;
-use Validator, Input, Redirect; 
+use Validator, Input, Redirect;
 
 class AtividadeController extends Controller
 {
