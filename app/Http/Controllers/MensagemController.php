@@ -55,9 +55,10 @@ class MensagemController extends Controller
         $Mensagem = Mensagem::find($id);
         return view('mensagem.show',['mensagens' => $Mensagem]);
     }
-    public function edit(Atividade $atividade)
+    public function edit($id)
     {
-        //
+        $obj_Mensagem = Mensagem::find($id);
+        return view('mensagem.edit',['Mensagem' => $obj_Mensagem]);
     }
 
     /**
@@ -67,9 +68,39 @@ class MensagemController extends Controller
      * @param  \App\Atividade  $atividade
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Atividade $atividade)
+    public function update(Request $request, $id)
     {
-        //
+        $messages = array(
+            'title.required' => 'É obrigatório um título para a atividade',
+            'description.required' => 'É obrigatória uma descrição para a atividade',
+            'author.required' => 'É obrigatório o cadastro da data/hora da atividade',
+        );
+
+        //vetor com as especificações de validações
+        $regras = array(
+            'title' => 'required|string|max:255',
+            'description' => 'required',
+            'author' => 'required|string',
+        );
+
+        //cria o objeto com as regras de validação
+        $validador = Validator::make($request->all(), $regras, $messages);
+
+        //executa as validações
+        if ($validador->fails()) {
+            return redirect('mensagens/$id/edit')
+            ->withErrors($validador)
+            ->withInput($request->all);
+        }
+
+        //se passou pelas validações, processa e salva no banco...
+        $obj_Mensagem = Mensagem::findOrFail($id);
+        $obj_Mensagem->title =       $request['title'];
+        $obj_Mensagem->description = $request['description'];
+        $obj_Mensagem->author = $request['author'];
+        $obj_Mensagem->save();
+
+        return redirect('/mensagens')->with('success', 'Mensagem alterada com sucesso!!');
     }
 
     /**
@@ -78,8 +109,15 @@ class MensagemController extends Controller
      * @param  \App\Atividade  $atividade
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Atividade $atividade)
+    public function destroy($id)
     {
-        //
+        $obj_Mensagem = Mensagem::findOrFail($id);
+        $obj_Mensagem->delete($id);
+        return redirect('/mensagens')->with('sucess','Mensagem excluída com Sucesso!!');    
+    }
+    public function delete($id)
+    {
+        $obj_Mensagem = Mensagem::find($id);
+        return view('mensagem.delete',['Mensagem' => $obj_Mensagem]);
     }
 }

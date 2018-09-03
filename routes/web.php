@@ -21,7 +21,7 @@ Route::post('/atividades/', 'AtividadeController@store');
 Route::get('/atividades/{id}', 'AtividadeController@show');
 Route::get('/atividades/{id}/edit', 'AtividadeController@edit');
 Route::put('/atividades/{id}', 'AtividadeController@update');
-Route::put('/atividades/{id}/delete', 'AtividadeController@delete');
+Route::get('/atividades/{id}/delete', 'AtividadeController@delete');
 Route::delete('/atividades/{id}', 'AtividadeController@destroy');
 
 Route::get('/mensagens', 'MensagemController@index');
@@ -30,6 +30,6 @@ Route::post('/mensagens/', 'MensagemController@store');
 Route::get('/mensagens/{id}', 'MensagemController@show');
 Route::get('/mensagens/{id}/edit', 'MensagemController@edit');
 Route::put('/mensagens/{id}', 'MensagemController@update');
-Route::put('/mensagens/{id}/delete', 'MensagemController@delete');
+Route::get('/mensagens/{id}/delete', 'MensagemController@delete');
 Route::delete('/mensagens/{id}', 'MensagemController@destroy');
 
