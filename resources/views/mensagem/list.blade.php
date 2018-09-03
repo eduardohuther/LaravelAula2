@@ -11,7 +11,7 @@
   @endif
 
 @foreach($mensagens as $Mensagem)
-  <h3>Título: <b><a href="/mensagens/{{$Mensagem->id}}">{{$Mensagem->title}}</a></b></h3>
+  <h3>Titulo: <b><a href="/mensagens/{{$Mensagem->id}}">{{$Mensagem->title}}</a></b></h3>
   <p>Texto: <b>{{$Mensagem->description}}</b></p>
   <p>Autor: <b>{{$Mensagem->author}}</b></p>
   <p>Ações: 
