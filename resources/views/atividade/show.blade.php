@@ -1,4 +1,4 @@
-<h1>Atividades {{$atividade->id}}</h1>
+<center><h1>Atividades {{$atividade->id}}</h1></center>
 <hr>
 <h3><b>ID:</b> {{$atividade->id}}</h3>
 <h3><b>Título:</b> {{$atividade->scheduledto}}</h3>

@@ -1,4 +1,4 @@
-<h1>Excluir Registro</h1>
+<center><h1>Excluir Registro</h1></center>
 <hr>
 <form action="/atividades/{{$atividade->id}}" method="POST">
 	{{ csrf_field() }}

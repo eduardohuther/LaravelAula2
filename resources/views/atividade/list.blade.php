@@ -1,4 +1,4 @@
-<h1>Lista de Atividades</h1>
+<center><h1>Lista de Atividades</h1></center>
 <hr>
 
   <!-- EXIBE MENSAGENS DE SUCESSO -->
@@ -15,12 +15,12 @@
   <p>Agendado para: <b>{{\Carbon\Carbon::parse($atividade->scheduledto)->format('d/m/Y h:m')}}</b></p>
 	<p>Descrição: <b>{{$atividade->description}}</b></p>
   <p>Ações: 
-    <a href="/atividades/{{$atividade->id}}">Ver Mais</a>
-    <a href="/atividades/{{$atividade->id}}/edit">Editar</a> 
-    <a href="/atividades/{{$atividade->id}}/delete">Deletar</a>
+    <a href="/atividades/{{$atividade->id}}">Ver Mais</a> -
+    <a href="/atividades/{{$atividade->id}}/edit">Editar</a> -
+    <a href="/atividades/{{$atividade->id}}/delete">Deletar</a> 
   </p>
 	<br>
 @endforeach
 
 <br>
-<p><a href="/atividades/create">Criar novo registro</a></p>
+<h2><a href="/atividades/create">Criar novo registro</a></h2>

@@ -1,4 +1,4 @@
-<h1>Lista de Mensagem</h1>
+<center><h1>Lista de Mensagem</h1></center>
 <hr>
 
   <!-- EXIBE MENSAGENS DE SUCESSO -->
@@ -11,16 +11,16 @@
   @endif
 
 @foreach($mensagens as $Mensagem)
-  <h3>Titulo: <b><a href="/mensagens/{{$Mensagem->id}}">{{$Mensagem->title}}</a></b></h3>
+  <h3>Título: <b><a href="/mensagens/{{$Mensagem->id}}">{{$Mensagem->title}}</a></b></h3>
   <p>Texto: <b>{{$Mensagem->description}}</b></p>
   <p>Autor: <b>{{$Mensagem->author}}</b></p>
   <p>Ações: 
-    <a href="/mensagens/{{$Mensagem->id}}">Ver Mais</a>
-    <a href="/mensagens/{{$Mensagem->id}}/edit">Editar</a> 
-    <a href="/mensagens/{{$Mensagem->id}}/delete">Deletar</a>
+    <a href="/mensagens/{{$Mensagem->id}}">Ver Mais</a> -
+    <a href="/mensagens/{{$Mensagem->id}}/edit">Editar</a> -
+    <a href="/mensagens/{{$Mensagem->id}}/delete">Deletar</a> -
   </p>
   <br>
 @endforeach
 
 <br>
-<p><a href="/mensagens/create">Criar novo registro</a></p>
+<h2><a href="/mensagens/create">Criar novo registro</a></h2>

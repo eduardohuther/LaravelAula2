@@ -1,10 +1,10 @@
-<h1>Cadastro de Mensagem</h1>
+<center><h1>Cadastro de Mensagem</h1></center>
 <hr>
 <form action="/mensagens" method="post">
 	{{ csrf_field() }}
 	Título: <input type="text" name="title"> <br>
 	Descrição: <input type="text" name="description"> <br>
-	Autor: <input type="text" name="author"> <br>
+	Autor: <input type="text" name="author"> <br><br>
 	<input type="submit" value="Salvar">
 </form>
 
