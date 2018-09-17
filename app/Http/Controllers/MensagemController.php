@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use App\Mensagem;
 use Illuminate\Http\Request;
 use Validator, Input, Redirect;
+use Illuminate\Support\Facades\Auth;
 
 class MensagemController extends Controller
 {
     public function index()
     {
-        $listaMensagens = Mensagem::all();
+        if(Auth::check() ){
+            $listaMensagens = Mensagem::where('user_id', Auth::id() )->get();
+        }else{
+            $listaMensagens = Mensagem::all();
+        }
         return view('mensagem.list',['mensagens' => $listaMensagens]);
     }
     public function create()
@@ -47,6 +52,7 @@ class MensagemController extends Controller
         $obj_Mensagem->title = $request['title'];
         $obj_Mensagem->description = $request['description'];
         $obj_Mensagem->author = $request['author'];
+        $obj_Mensagem->user_id = Auth::id();
         $obj_Mensagem->save();
         return redirect('/mensagens')->with('success', 'Mensagem criada com sucesso!');
     }
@@ -98,6 +104,7 @@ class MensagemController extends Controller
         $obj_Mensagem->title =       $request['title'];
         $obj_Mensagem->description = $request['description'];
         $obj_Mensagem->author = $request['author'];
+        $obj_Mensagem->user_id = Auth::id();
         $obj_Mensagem->save();
 
         return redirect('/mensagens')->with('success', 'Mensagem alterada com sucesso!!');

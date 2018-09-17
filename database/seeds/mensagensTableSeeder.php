@@ -15,31 +15,36 @@ class mensagensTableSeeder extends Seeder
         Mensagem::create([
         	'title'=>'bla',
         	'description'=>'bla',
-        	'author'=>'bla'
+        	'author'=>'bla',
+            'user_id' => 1
         	]);
 
         Mensagem::create([
             'title'=>'bla',
             'description'=>'bla',
-            'author'=>'bla'
+            'author'=>'bla',
+            'user_id' => 1
             ]);
 
         Mensagem::create([
             'title'=>'bla',
             'description'=>'bla',
-            'author'=>'bla'
+            'author'=>'bla',
+            'user_id' => 1
             ]);
 
         Mensagem::create([
             'title'=>'bla',
             'description'=>'bla',
-            'author'=>'bla'
+            'author'=>'bla',
+            'user_id' => 1
             ]);
 
         Mensagem::create([
             'title'=>'bla',
             'description'=>'bla',
-            'author'=>'bla'
+            'author'=>'bla',
+            'user_id' => 1
             ]);
     }
 }

@@ -18,6 +18,7 @@ class AddMensagensTable extends Migration
             $table->string('title');            //título da atividade
             $table->string('description');      //descrição da atividade
             $table->dateTime('author');    //agendado para
+            $table->integer('user_id')->unsigned();
             $table->timestamps();               //registro created_at e updated_at
         });
     }
