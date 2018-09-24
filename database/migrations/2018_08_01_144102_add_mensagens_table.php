@@ -14,12 +14,17 @@ class AddMensagensTable extends Migration
     public function up()
     {
         Schema::create('mensagens', function (Blueprint $table) {
-            $table->increments('id');           //código identificador
-            $table->string('title');            //título da atividade
-            $table->string('description');      //descrição da atividade
-            $table->dateTime('author');    //agendado para
-            $table->integer('user_id')->unsigned();
-            $table->timestamps();               //registro created_at e updated_at
+            $table->increments('id');   //código identificador
+            $table->string('title');   //título da mensagem
+            $table->string('description');    //texto da mensagem
+            $table->string('author');    //autor da mensagem
+            $table->integer('user_id')->unsigned(); //guarda o id de quem cadastra a msg.
+            $table->integer('atividade_id')->unsigned(); //guarda o id da atividade
+            $table->timestamps();       //registro created_at e updated_at
+        });
+        Schema::table('mensagens', function($table){
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('atividade_id')->references('id')->on('atividades');
         });
     }
 

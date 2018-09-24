@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mensagem;
+use App\Atividade;
 use Illuminate\Http\Request;
 use Validator, Input, Redirect;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,8 @@ class MensagemController extends Controller
     }
     public function create()
     {
-        return view('mensagem.create');
+        $atividades = Atividade::all();
+        return view('mensagem.create', ['atividades' => $atividades]);
     }
 
     /**
