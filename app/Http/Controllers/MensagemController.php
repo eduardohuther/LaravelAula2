@@ -55,6 +55,7 @@ class MensagemController extends Controller
         $obj_Mensagem->description = $request['description'];
         $obj_Mensagem->author = $request['author'];
         $obj_Mensagem->user_id = Auth::id();
+        $obj_Mensagem->atividade_id = $request['atividade_id'];
         $obj_Mensagem->save();
         return redirect('/mensagens')->with('success', 'Mensagem criada com sucesso!');
     }
