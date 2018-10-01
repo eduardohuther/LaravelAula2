@@ -12,12 +12,8 @@ class MensagemController extends Controller
 {
     public function index()
     {
-        if(Auth::check() ){
-            $listaMensagens = Mensagem::where('user_id', Auth::id() )->get();
-        }else{
-            $listaMensagens = Mensagem::all();
-        }
-        return view('mensagem.list',['mensagens' => $listaMensagens]);
+        $mensagens = Mensagem::paginate(2);
+        return view('mensagem.list',['mensagens' => $mensagens]);
     }
     public function create()
     {

@@ -24,6 +24,8 @@
   <br>
 @endforeach
 
+{{ $mensagens->links() }}
+
 <br>
 @auth
 <h2><a href="/mensagens/create">Criar novo registro</a></h2>

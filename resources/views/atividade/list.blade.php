@@ -24,6 +24,8 @@
 	<br>
 @endforeach
 
+{{ $atividades->links() }}
+
 <br>
 @auth
 <h2><a href="/atividades/create">Criar novo registro</a></h2>

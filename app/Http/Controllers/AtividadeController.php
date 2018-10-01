@@ -21,6 +21,8 @@ class AtividadeController extends Controller
         }else{
             $listaAtividades = Atividade::all();
         }
+
+        $listaAtividades = Atividade::paginate(1);
         return view('atividade.list',['atividades' => $listaAtividades]);
     }
 
