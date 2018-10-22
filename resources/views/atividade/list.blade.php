@@ -1,3 +1,6 @@
+@extends('layouts.app')
+@section('contect')
+
 <center><h1>Lista de Atividades</h1></center>
 <hr>
 
